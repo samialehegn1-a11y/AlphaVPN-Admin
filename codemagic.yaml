@@ -5,10 +5,9 @@ workflows:
     environment:
       java: 21
     scripts:
-      - name: Force Gradle 9.3.1 Wrapper
+      - name: Generate Gradle Wrapper
         script: |
-          gradle wrapper --gradle-version 9.3.1 --distribution-type bin
-          chmod +x gradlew
+          gradle wrapper --gradle-version 9.3.1
       - name: Create Debug Keystore
         script: |
           keytool -genkey -v -keystore /Users/builder/clone/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
